@@ -30,4 +30,16 @@ public class RoverTest {
         assertThat(position).isEqualTo(new Position(0, 0, Orientation.WEST));
     }
 
+    @Test
+    public void should_move_in_the_right_direction_when_move_forward() {
+        // given
+        Rover rover = new Rover(new Position(0, 0, Orientation.NORTH));
+
+        // when
+        Position position = rover.moveForward();
+
+        // then
+        assertThat(position).isEqualTo(new Position(0, 1, Orientation.NORTH));
+    }
+
 }
