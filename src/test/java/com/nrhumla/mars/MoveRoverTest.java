@@ -1,5 +1,8 @@
 package com.nrhumla.mars;
 
+import com.nrhumla.mars.instructions.MoveForward;
+import com.nrhumla.mars.instructions.RotateLeft;
+import com.nrhumla.mars.instructions.RotateRight;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -12,9 +15,9 @@ public class MoveRoverTest {
         Rover rover = new Rover(new Position(0, 0, Orientation.NORTH));
 
         // when
-        rover.rotateRight();
-        rover.moveForward();
-        Position finalPosition = rover.rotateLeft();
+        rover.apply(new RotateRight());
+        rover.apply(new MoveForward());
+        Position finalPosition = rover.apply(new RotateLeft());
 
         // then
         assertThat(finalPosition).isEqualTo(new Position(1, 0, Orientation.NORTH));
