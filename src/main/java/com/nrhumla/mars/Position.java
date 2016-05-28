@@ -44,4 +44,13 @@ public class Position {
         result = 31 * result + orientation.hashCode();
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Position{" +
+                "x=" + x +
+                ", y=" + y +
+                ", orientation=" + orientation +
+                '}';
+    }
 }
