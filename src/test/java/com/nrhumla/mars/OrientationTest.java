@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class OrientationTest {
 
     @Test
-    public void should_face_east_when_facing_north_and_right() {
+    public void should_face_east_when_facing_north_and_rotate_right() {
         assertThat(Orientation.NORTH.right()).isEqualTo(Orientation.EAST);
     }
 
@@ -25,4 +25,25 @@ public class OrientationTest {
     public void should_face_north_when_facing_west_and_rotate_right() {
         assertThat(Orientation.WEST.right()).isEqualTo(Orientation.NORTH);
     }
+
+    @Test
+    public void should_face_west_when_facing_north_and_rotate_left() {
+        assertThat(Orientation.NORTH.left()).isEqualTo(Orientation.WEST);
+    }
+
+    @Test
+    public void should_face_east_when_facing_south_and_rotate_left() {
+        assertThat(Orientation.SOUTH.left()).isEqualTo(Orientation.EAST);
+    }
+
+    @Test
+    public void should_face_north_when_facing_east_and_rotate_left() {
+        assertThat(Orientation.EAST.left()).isEqualTo(Orientation.NORTH);
+    }
+
+    @Test
+    public void should_face_south_when_facing_west_and_rotate_left() {
+        assertThat(Orientation.WEST.left()).isEqualTo(Orientation.SOUTH);
+    }
+
 }

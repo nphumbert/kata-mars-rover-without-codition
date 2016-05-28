@@ -7,6 +7,11 @@ public enum Orientation {
     EAST, SOUTH, WEST, NORTH;
 
     private final static Map<Orientation, Orientation> RIGHT_ROTATIONS = initRightRotations();
+    private final static Map<Orientation, Orientation> LEFT_ROTATIONS = initLeftRotations();
+
+    public Orientation right() {
+        return RIGHT_ROTATIONS.get(this);
+    }
 
     private static Map<Orientation, Orientation> initRightRotations() {
         Map<Orientation, Orientation> rightRotations = new HashMap<>();
@@ -17,7 +22,16 @@ public enum Orientation {
         return rightRotations;
     }
 
-    public Orientation right() {
-        return RIGHT_ROTATIONS.get(this);
+    public Orientation left() {
+        return LEFT_ROTATIONS.get(this);
+    }
+
+    private static Map<Orientation, Orientation> initLeftRotations() {
+        Map<Orientation, Orientation> leftRotations = new HashMap<>();
+        leftRotations.put(NORTH, WEST);
+        leftRotations.put(SOUTH, EAST);
+        leftRotations.put(EAST, NORTH);
+        leftRotations.put(WEST, SOUTH);
+        return leftRotations;
     }
 }

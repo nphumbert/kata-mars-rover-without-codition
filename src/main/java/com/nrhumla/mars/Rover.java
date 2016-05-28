@@ -13,7 +13,9 @@ public class Rover {
     }
 
     public Position rotateLeft() {
-        return null;
+        Position newPosition = new Position(position.x(), position.y(), position.orientation().left());
+        position = newPosition;
+        return newPosition;
     }
 
     public Position rotateRight() {
